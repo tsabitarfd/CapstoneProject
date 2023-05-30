@@ -11,11 +11,12 @@ def showitem(dict, title="\nSUPERMARKET WAREHOUSE\n"):
     print(tabulate.tabulate(data, header, tablefmt="outline"))
     print("\n")
 
+
 def additem():
     #Menampilkan menu add item
     while True:
         prompt = f'Add New Item\n'
-        choiceUpdate = [' Add New Item',
+        choiceUpdate = ['Add New Item',
                         'Main Menu']
         responsechoiceAdd = pypi.inputMenu(
             prompt=prompt, 
@@ -81,10 +82,7 @@ def additem():
                             itemStock]})
                 showitem(listItem)
             else:
-                break
-
-            
-            
+                break         
     
 
 def updateitem():
@@ -95,7 +93,10 @@ def updateitem():
                         'Update Price',
                         'Update Unit',
                         'Main Menu']
-        responsechoiceUpdate = pypi.inputMenu(prompt=prompt, choices=choiceUpdate, numbered=True)
+        responsechoiceUpdate = pypi.inputMenu(
+            prompt=prompt, 
+            choices=choiceUpdate, 
+            numbered=True)
     #Masukkan pilihan update stock item/no
         if responsechoiceUpdate == 'Update Stock':
             while True:
@@ -180,8 +181,6 @@ def updateitem():
             break
 
 
-
-
 def deleteitem():
     #Menu delete item
     while True:
@@ -236,17 +235,11 @@ def deleteitem():
             break
 
 
-
-
-
 def func(db):
-    #Mengubah value list item menjadi list
+    #memisahkan data antara nama column dan rows
     dataitem = list(db.values())[1:]
     header = db['Column']
     return dataitem, header
-
-
-
 
 
 def main():
@@ -325,9 +318,6 @@ def main():
         #Exit program
         else:
             sys.exit()
-
-
-
 
 
 if __name__ == "__main__":
